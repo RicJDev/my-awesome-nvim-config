@@ -82,9 +82,15 @@ return {
         emmet_ls = function()
           require("lspconfig").emmet_ls.setup {
             capabilities = capabilities,
-            -- on_init = on_attach,
+            -- on_attach = on_attach,
           }
         end,
+        astro = function ()
+          require('lspconfig').astro.setup {
+            capabilities = capabilities,
+            -- on_attach = on_attach,
+          }
+        end
       },
     }
 
