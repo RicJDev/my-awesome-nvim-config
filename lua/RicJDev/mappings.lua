@@ -7,7 +7,11 @@ map("n", "<leader>e", "<cmd>NvimTreeFocus<CR>", { desc = "nvimtree focus window"
 
 -- Formating
 
+<<<<<<< HEAD
 map({ "n", "x" }, "<F3>", function()
+=======
+map({ "n", "x" }, "<leader>fm", function()
+>>>>>>> 12e4baf242a275f5891307ac8d5342d881aa6d1e
   require("conform").format { lsp_fallback = true }
 end, { desc = "general format file" })
 
@@ -39,8 +43,11 @@ map("v", "<leader>/", "gc", { desc = "toggle comment", remap = true })
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 
+<<<<<<< HEAD
 map({ "n", "i" }, "<C-z>", "<cmd>u<CR>", { desc = "undo last change" })
 
+=======
+>>>>>>> 12e4baf242a275f5891307ac8d5342d881aa6d1e
 -- Telescope
 
 local builtin = require "telescope.builtin"

@@ -60,8 +60,13 @@ local is_windows = vim.fn.has "win32" ~= 0
 local sep = is_windows and "\\" or "/"
 local delim = is_windows and ";" or ":"
 vim.env.PATH = table.concat({ vim.fn.stdpath "data", "mason", "bin" }, sep) .. delim .. vim.env.PATH
+<<<<<<< HEAD
 
 -- Ehm... other stuff
 
 vim.opt.signcolumn = 'yes'
+=======
+vim.opt.signcolumn = 'yes'
+vim.opt.swapfile = false
+>>>>>>> 12e4baf242a275f5891307ac8d5342d881aa6d1e
 vim.wo.number = true
