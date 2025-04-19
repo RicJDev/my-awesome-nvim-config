@@ -16,11 +16,11 @@ return {
     local cmp_lsp = require "cmp_nvim_lsp"
     local capabilities =
       vim.tbl_deep_extend("force", {}, cmp_lsp.default_capabilities(), vim.lsp.protocol.make_client_capabilities())
-    local on_attach = function(client, _)
-      if client.supports_method "textDocument/semanticTokens" then
-        client.server_capabilities.semanticTokensProvider = nil
-      end
-    end
+    -- local on_attach = function(client, _)
+    --   if client.supports_method "textDocument/semanticTokens" then
+    --     client.server_capabilities.semanticTokensProvider = nil
+    --   end
+    -- end
 
     require("fidget").setup()
     require("mason").setup()
@@ -37,13 +37,13 @@ return {
         function(server_name)
           require("lspconfig")[server_name].setup {
             capabilities = capabilities,
-            on_attach = on_attach,
+            -- on_attach = on_attach,
           }
         end,
         lua_ls = function()
           require("lspconfig").lua_ls.setup {
             capabilities = capabilities,
-            on_attach = on_attach,
+            -- on_attach = on_attach,
             settings = {
               Lua = {
                 runtime = {
@@ -64,25 +64,25 @@ return {
         ts_ls = function()
           require("lspconfig").ts_ls.setup {
             capabilities = capabilities,
-            on_attach = on_attach,
+            -- on_attach = on_attach,
           }
         end,
         html = function()
           require("lspconfig").html.setup {
             capabilities = capabilities,
-            on_attach = on_attach,
+            -- on_attach = on_attach,
           }
         end,
         cssls = function()
           require("lspconfig").cssls.setup {
             capabilities = capabilities,
-            on_attach = on_attach,
+            -- on_attach = on_attach,
           }
         end,
         emmet_ls = function()
           require("lspconfig").emmet_ls.setup {
             capabilities = capabilities,
-            on_init = on_attach,
+            -- on_init = on_attach,
           }
         end,
       },
@@ -90,8 +90,6 @@ return {
 
     local cmp = require "cmp"
 
-    -- this is the function that loads the extra snippets to luasnip
-    -- from rafamadriz/friendly-snippets
     require("luasnip.loaders.from_vscode").lazy_load()
 
     cmp.setup {
