@@ -1,11 +1,5 @@
 return {
   "neovim/nvim-lspconfig",
-<<<<<<< HEAD
-=======
-  lazy = false,
-  priority = 2000,
-
->>>>>>> 12e4baf242a275f5891307ac8d5342d881aa6d1e
   dependencies = {
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim",
@@ -22,7 +16,6 @@ return {
     local cmp_lsp = require "cmp_nvim_lsp"
     local capabilities =
       vim.tbl_deep_extend("force", {}, cmp_lsp.default_capabilities(), vim.lsp.protocol.make_client_capabilities())
-<<<<<<< HEAD
     local on_attach = function(client, _)
       if client.supports_method "textDocument/semanticTokens" then
         client.server_capabilities.semanticTokensProvider = nil
@@ -30,19 +23,12 @@ return {
     end
 
     require("fidget").setup()
-=======
-
-    require("fidget").setup {}
->>>>>>> 12e4baf242a275f5891307ac8d5342d881aa6d1e
     require("mason").setup()
 
     require("mason-lspconfig").setup {
       ensure_installed = {
         "ts_ls",
-<<<<<<< HEAD
         "emmet_ls",
-=======
->>>>>>> 12e4baf242a275f5891307ac8d5342d881aa6d1e
         "lua_ls",
         "html",
         "cssls",
@@ -51,19 +37,13 @@ return {
         function(server_name)
           require("lspconfig")[server_name].setup {
             capabilities = capabilities,
-<<<<<<< HEAD
             on_attach = on_attach,
-=======
->>>>>>> 12e4baf242a275f5891307ac8d5342d881aa6d1e
           }
         end,
         lua_ls = function()
           require("lspconfig").lua_ls.setup {
             capabilities = capabilities,
-<<<<<<< HEAD
             on_attach = on_attach,
-=======
->>>>>>> 12e4baf242a275f5891307ac8d5342d881aa6d1e
             settings = {
               Lua = {
                 runtime = {
@@ -84,57 +64,25 @@ return {
         ts_ls = function()
           require("lspconfig").ts_ls.setup {
             capabilities = capabilities,
-<<<<<<< HEAD
             on_attach = on_attach,
-=======
-            -- settings = {
-            --   cmd = { "typescript-language-server", "--stdio" },
-            --   completions = {
-            --     completeFunctionCalls = true,
-            --   },
-            --   filetypes = {
-            --     "javascript",
-            --     "javascriptreact",
-            --     "typescript",
-            --     "typescriptreact",
-            --   },
-            -- },
->>>>>>> 12e4baf242a275f5891307ac8d5342d881aa6d1e
           }
         end,
         html = function()
           require("lspconfig").html.setup {
             capabilities = capabilities,
-<<<<<<< HEAD
             on_attach = on_attach,
-=======
-            init_options = {
-              configurationSection = { "html", "css", "javascript" },
-              embeddedLanguages = {
-                css = true,
-                javascript = true,
-              },
-              provideFormatter = true,
-            },
->>>>>>> 12e4baf242a275f5891307ac8d5342d881aa6d1e
           }
         end,
         cssls = function()
           require("lspconfig").cssls.setup {
             capabilities = capabilities,
-<<<<<<< HEAD
             on_attach = on_attach,
-=======
->>>>>>> 12e4baf242a275f5891307ac8d5342d881aa6d1e
           }
         end,
         emmet_ls = function()
           require("lspconfig").emmet_ls.setup {
             capabilities = capabilities,
-<<<<<<< HEAD
             on_init = on_attach,
-=======
->>>>>>> 12e4baf242a275f5891307ac8d5342d881aa6d1e
           }
         end,
       },
@@ -166,7 +114,6 @@ return {
         documentation = cmp.config.window.bordered(),
       },
     }
-<<<<<<< HEAD
 
     vim.api.nvim_create_autocmd("LspAttach", {
       desc = "LSP actions",
@@ -188,7 +135,5 @@ return {
         },
       },
     }
-=======
->>>>>>> 12e4baf242a275f5891307ac8d5342d881aa6d1e
   end,
 }

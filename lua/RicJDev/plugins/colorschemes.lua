@@ -1,15 +1,5 @@
 return {
   {
-<<<<<<< HEAD
-=======
-    "norcalli/nvim-colorizer.lua",
-    event = "BufEnter",
-    config = function()
-      require("colorizer").setup()
-    end,
-  },
-  {
->>>>>>> 12e4baf242a275f5891307ac8d5342d881aa6d1e
     "olimorris/onedarkpro.nvim",
     priority = 1000,
     config = function()

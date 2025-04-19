@@ -33,10 +33,7 @@ return {
             "--print-width=120",
             "--trailing-comma=none",
             "--bracket-same-line=true",
-<<<<<<< HEAD
             "--single-quote",
-=======
->>>>>>> 12e4baf242a275f5891307ac8d5342d881aa6d1e
             "--no-semi",
           },
         },
