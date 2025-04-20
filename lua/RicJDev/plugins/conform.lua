@@ -26,7 +26,7 @@ return {
         json = { "prettier", lsp_fallback = true },
         html = { "prettier", lsp_fallback = true },
         css = { "prettier", lsp_fallback = true },
-        astro = { "prettier", lsp_fallback = true },
+        astro = { lsp_fallback = true },
       },
       formatters = {
         prettier = {

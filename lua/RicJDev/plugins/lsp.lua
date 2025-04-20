@@ -16,6 +16,7 @@ return {
     local cmp_lsp = require "cmp_nvim_lsp"
     local capabilities =
       vim.tbl_deep_extend("force", {}, cmp_lsp.default_capabilities(), vim.lsp.protocol.make_client_capabilities())
+
     -- local on_attach = function(client, _)
     --   if client.supports_method "textDocument/semanticTokens" then
     --     client.server_capabilities.semanticTokensProvider = nil
@@ -37,13 +38,11 @@ return {
         function(server_name)
           require("lspconfig")[server_name].setup {
             capabilities = capabilities,
-            -- on_attach = on_attach,
           }
         end,
         lua_ls = function()
           require("lspconfig").lua_ls.setup {
             capabilities = capabilities,
-            -- on_attach = on_attach,
             settings = {
               Lua = {
                 runtime = {
@@ -64,31 +63,36 @@ return {
         ts_ls = function()
           require("lspconfig").ts_ls.setup {
             capabilities = capabilities,
-            -- on_attach = on_attach,
           }
         end,
         html = function()
           require("lspconfig").html.setup {
             capabilities = capabilities,
-            -- on_attach = on_attach,
           }
         end,
         cssls = function()
           require("lspconfig").cssls.setup {
             capabilities = capabilities,
-            -- on_attach = on_attach,
           }
         end,
         emmet_ls = function()
           require("lspconfig").emmet_ls.setup {
             capabilities = capabilities,
-            -- on_attach = on_attach,
           }
         end,
         astro = function ()
           require('lspconfig').astro.setup {
             capabilities = capabilities,
-            -- on_attach = on_attach,
+          }
+       end,
+        basedpyright = function ()
+          require('lspconfig').basedpyright.setup {
+            capabilities = capabilities
+          }
+        end,
+        ruff = function ()
+          require('lspconfig').ruff.setup {
+            capabilities = capabilities
           }
         end
       },
