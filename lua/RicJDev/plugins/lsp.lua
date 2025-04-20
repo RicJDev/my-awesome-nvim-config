@@ -15,7 +15,7 @@ return {
   config = function()
     local cmp_lsp = require "cmp_nvim_lsp"
     local capabilities =
-      vim.tbl_deep_extend("force", {}, cmp_lsp.default_capabilities(), vim.lsp.protocol.make_client_capabilities())
+        vim.tbl_deep_extend("force", {}, cmp_lsp.default_capabilities(), vim.lsp.protocol.make_client_capabilities())
 
     -- local on_attach = function(client, _)
     --   if client.supports_method "textDocument/semanticTokens" then
@@ -80,20 +80,26 @@ return {
             capabilities = capabilities,
           }
         end,
-        astro = function ()
+        astro = function()
           require('lspconfig').astro.setup {
             capabilities = capabilities,
           }
-       end,
-        basedpyright = function ()
+        end,
+        basedpyright = function()
           require('lspconfig').basedpyright.setup {
             capabilities = capabilities
           }
         end,
-        ruff = function ()
+        ruff = function()
           require('lspconfig').ruff.setup {
             capabilities = capabilities
           }
+        end,
+
+        clangd = function()
+          require('lspconfig').clangd.setup({
+            capabilities = capabilities,
+          })
         end
       },
     }
@@ -107,7 +113,7 @@ return {
         { name = "path" },
         { name = "nvim_lsp" },
         { name = "luasnip", keyword_length = 2 },
-        { name = "buffer", keyword_length = 3 },
+        { name = "buffer",  keyword_length = 3 },
       },
       mapping = cmp.mapping.preset.insert {
         ["<CR>"] = cmp.mapping.confirm { select = true },
