@@ -1,6 +1,7 @@
 vim.g.mapleader = " "
 
 vim.cmd.colorscheme "onedark"
+-- vim.cmd.colorscheme "onedark_vivid"
 -- vim.cmd.colorscheme "catppuccin-macchiato"
 vim.cmd "set nu!"
 
@@ -63,7 +64,6 @@ vim.env.PATH = table.concat({ vim.fn.stdpath "data", "mason", "bin" }, sep) .. d
 
 -- Ehm... other stuff
 
-vim.opt.signcolumn = 'yes'
 vim.opt.signcolumn = 'yes'
 vim.opt.swapfile = false
 vim.wo.number = true

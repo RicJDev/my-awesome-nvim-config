@@ -7,7 +7,7 @@ map("n", "<leader>e", "<cmd>NvimTreeFocus<CR>", { desc = "nvimtree focus window"
 
 -- Formating
 
-map({ "n", "x" }, "<F3>", function()
+map({ "n", "x", "i" }, "<F3>", function()
   require("conform").format { lsp_fallback = true }
 end, { desc = "general format file" })
 

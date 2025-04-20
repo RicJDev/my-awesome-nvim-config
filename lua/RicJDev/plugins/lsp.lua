@@ -95,9 +95,13 @@ return {
             capabilities = capabilities
           }
         end,
-
         clangd = function()
           require('lspconfig').clangd.setup({
+            capabilities = capabilities,
+          })
+        end,
+        gopls = function()
+          require('lspconfig').gopls.setup({
             capabilities = capabilities,
           })
         end
