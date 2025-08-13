@@ -9,12 +9,12 @@ return {
     },
     ensure_installed = {
       "vim",
-      "javascript",
-      "typescript",
       "lua",
       "vimdoc",
       "html",
       "css",
+      "javascript",
+      "typescript",
       "tsx",
     },
     highlight = {
