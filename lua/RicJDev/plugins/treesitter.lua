@@ -5,7 +5,7 @@ return {
   build = ":TSUpdate",
   opts = {
     install = {
-      compilers = { vim.fn.getenv "CC", "zig", "gcc" },
+      compilers = { "zig", "gcc" },
     },
     ensure_installed = {
       "vim",

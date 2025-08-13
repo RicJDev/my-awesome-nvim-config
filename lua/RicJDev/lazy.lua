@@ -15,7 +15,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  spec = "RicJDev.plugins",
+  spec = { import = "RicJDev.plugins" },
   install = { colorscheme = { "habamax" } },
   checker = { enabled = false },
 })
