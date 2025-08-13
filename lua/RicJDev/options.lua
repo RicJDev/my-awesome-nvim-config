@@ -7,10 +7,10 @@ vim.cmd.colorscheme "onedark"
 vim.cmd [[
   set guicursor=n-v-c-i:block
   set linebreak
-  set foldcolumn=1
-  set foldlevel=20
-  set foldmethod=expr
-  set foldexpr=nvim_treesitter#foldexpr()
+  "set foldcolumn=1
+  "set foldlevel=20
+  "set foldmethod=expr
+  "set foldexpr=nvim_treesitter#foldexpr()
 ]]
 
 local opt = vim.opt
