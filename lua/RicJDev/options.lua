@@ -1,9 +1,17 @@
 vim.g.mapleader = " "
 
+-- vim.cmd.colorscheme "catppuccin-macchiato"
 vim.cmd.colorscheme "onedark"
 -- vim.cmd.colorscheme "onedark_vivid"
--- vim.cmd.colorscheme "catppuccin-macchiato"
-vim.cmd "set nu!"
+
+vim.cmd [[
+  set guicursor=n-v-c-i:block
+  set linebreak
+  set foldcolumn=1
+  set foldlevel=20
+  set foldmethod=expr
+  set foldexpr=nvim_treesitter#foldexpr()
+]]
 
 local opt = vim.opt
 local o = vim.o
@@ -37,6 +45,8 @@ o.ruler = false
 -- disable nvim intro
 opt.shortmess:append "sI"
 
+o.foldenable = true
+o.foldlevelstart = 99
 o.signcolumn = "yes"
 o.splitbelow = true
 o.splitright = true
@@ -64,6 +74,6 @@ vim.env.PATH = table.concat({ vim.fn.stdpath "data", "mason", "bin" }, sep) .. d
 
 -- Ehm... other stuff
 
-vim.opt.signcolumn = 'yes'
+vim.opt.signcolumn = "yes"
 vim.opt.swapfile = false
-vim.wo.number = true
+vim.wo.number = false

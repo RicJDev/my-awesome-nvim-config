@@ -13,7 +13,7 @@ return {
         ".editorconfig",
       },
       config_path = ".prettierrc.json",
-    }
+    },
   },
   config = function()
     require("conform").setup {
@@ -28,17 +28,7 @@ return {
         css = { "prettier", lsp_fallback = true },
         astro = { lsp_fallback = true },
       },
-      formatters = {
-        prettier = {
-          append_args = {
-            "--print-width=120",
-            "--trailing-comma=none",
-            "--bracket-same-line=true",
-            "--single-quote",
-            "--no-semi",
-          },
-        },
-      },
+      formatters = {},
     }
   end,
 }

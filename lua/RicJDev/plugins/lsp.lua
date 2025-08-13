@@ -9,19 +9,13 @@ return {
     "hrsh7th/cmp-cmdline",
     "hrsh7th/nvim-cmp",
     "L3MON4D3/LuaSnip",
-    "saadparwaiz1/cmp_luasnip",
+    "rafamadriz/friendly-snippets",
     "j-hui/fidget.nvim",
   },
   config = function()
     local cmp_lsp = require "cmp_nvim_lsp"
     local capabilities =
-        vim.tbl_deep_extend("force", {}, cmp_lsp.default_capabilities(), vim.lsp.protocol.make_client_capabilities())
-
-    -- local on_attach = function(client, _)
-    --   if client.supports_method "textDocument/semanticTokens" then
-    --     client.server_capabilities.semanticTokensProvider = nil
-    --   end
-    -- end
+      vim.tbl_deep_extend("force", {}, cmp_lsp.default_capabilities(), vim.lsp.protocol.make_client_capabilities())
 
     require("fidget").setup()
     require("mason").setup()
@@ -60,6 +54,11 @@ return {
             },
           }
         end,
+        marksman = function()
+          require("lspconfig").marksman.setup {
+            capabilities = capabilities,
+          }
+        end,
         ts_ls = function()
           require("lspconfig").ts_ls.setup {
             capabilities = capabilities,
@@ -81,30 +80,35 @@ return {
           }
         end,
         astro = function()
-          require('lspconfig').astro.setup {
+          require("lspconfig").astro.setup {
             capabilities = capabilities,
           }
         end,
         basedpyright = function()
-          require('lspconfig').basedpyright.setup {
-            capabilities = capabilities
+          require("lspconfig").basedpyright.setup {
+            capabilities = capabilities,
           }
         end,
         ruff = function()
-          require('lspconfig').ruff.setup {
-            capabilities = capabilities
+          require("lspconfig").ruff.setup {
+            capabilities = capabilities,
           }
         end,
         clangd = function()
-          require('lspconfig').clangd.setup({
+          require("lspconfig").clangd.setup {
             capabilities = capabilities,
-          })
+          }
+        end,
+        powershell_es = function()
+          require("lspconfig").powershell_es.setup {
+            capabilities = capabilities,
+          }
         end,
         gopls = function()
-          require('lspconfig').gopls.setup({
+          require("lspconfig").gopls.setup {
             capabilities = capabilities,
-          })
-        end
+          }
+        end,
       },
     }
 
@@ -117,10 +121,27 @@ return {
         { name = "path" },
         { name = "nvim_lsp" },
         { name = "luasnip", keyword_length = 2 },
-        { name = "buffer",  keyword_length = 3 },
+        { name = "buffer", keyword_length = 3 },
       },
       mapping = cmp.mapping.preset.insert {
-        ["<CR>"] = cmp.mapping.confirm { select = true },
+        ["<CR>"] = cmp.mapping.confirm { select = true }, -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+        ["<C-Space>"] = cmp.mapping.complete(),
+        ["<C-e>"] = cmp.mapping.abort(),
+        ["<Tab>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_next_item()
+          else
+            fallback()
+          end
+        end, { "i", "s" }),
+
+        ["<S-Tab>"] = cmp.mapping(function(fallback)
+          if cmp.visible() then
+            cmp.select_prev_item()
+          else
+            fallback()
+          end
+        end, { "i", "s" }),
       },
       snippet = {
         expand = function(args)

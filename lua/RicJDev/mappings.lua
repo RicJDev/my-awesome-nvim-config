@@ -2,8 +2,11 @@ local map = vim.keymap.set
 
 -- NvimTree
 
-map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree toggle window" })
-map("n", "<leader>e", "<cmd>NvimTreeFocus<CR>", { desc = "nvimtree focus window" })
+-- map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree toggle window" })
+-- map("n", "<leader>e", "<cmd>NvimTreeFocus<CR>", { desc = "nvimtree focus window" })
+
+map('n', "<C-n>", "<cmd>Neotree position=float toggle<CR>", {desc = "Neotree toggle window"})
+map("n", "<leader>e", "<cmd>Neotree action=focus<CR>", { desc = "Neotree focus window" })
 
 -- Formating
 
@@ -48,3 +51,8 @@ local builtin = require "telescope.builtin"
 map("n", "<C-p>", builtin.find_files, {})
 map("n", "<leader>fg", builtin.live_grep, {})
 map("n", "<leader><leader>", builtin.oldfiles, {})
+
+-- Buffer navigation
+
+map("n", "<Tab>", "<CMD>bNext<CR>", { desc = "change to next buffer" })
+map("n", "<S-Tab>", "<CMD>bprevious<CR>", { desc = "change to previous buffer" })

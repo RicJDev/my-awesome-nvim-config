@@ -19,7 +19,7 @@ return {
 
         options = {
           cursorline = true,
-          -- transparency = true,
+          transparency = true,
           -- terminal_colors = false,
         },
       }
@@ -31,7 +31,7 @@ return {
     config = function()
       require("catppuccin").setup {
         no_italic = true,
-        -- transparent_background = true,
+        transparent_background = true,
       }
     end,
   },

@@ -7,8 +7,8 @@ return {
       options = {
         preset = 'powerline',
         multilines = {
-          enabled = true,
-          always_show = true,
+          -- enabled = true,
+          -- always_show = true,
         },
         enable_on_insert = true,
         throttle = 0,
