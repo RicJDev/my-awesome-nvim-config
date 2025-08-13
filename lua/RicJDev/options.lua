@@ -1,7 +1,7 @@
 vim.g.mapleader = " "
 
--- vim.cmd.colorscheme "catppuccin-macchiato"
-vim.cmd.colorscheme "onedark"
+vim.cmd.colorscheme "catppuccin-macchiato"
+-- vim.cmd.colorscheme "onedark"
 -- vim.cmd.colorscheme "onedark_vivid"
 
 vim.cmd [[
