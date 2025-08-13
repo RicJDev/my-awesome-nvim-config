@@ -5,12 +5,6 @@ local map = vim.keymap.set
 map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree toggle window" })
 map("n", "<leader>e", "<cmd>NvimTreeFocus<CR>", { desc = "nvimtree focus window" })
 
--- Formating
-
-map({ "n", "x" }, "<leader>fm", function()
-  require("conform").format { lsp_fallback = true }
-end, { desc = "general format file" })
-
 -- Some basic keymaps
 
 map("i", "<C-b>", "<ESC>^i", { desc = "move beginning of line" })
@@ -25,24 +19,10 @@ map("n", "<C-l>", "<C-w>l", { desc = "switch window right" })
 map("n", "<C-j>", "<C-w>j", { desc = "switch window down" })
 map("n", "<C-k>", "<C-w>k", { desc = "switch window up" })
 
-map("n", "<Esc>", "<cmd>noh<CR>", { desc = "general clear highlights" })
-
 map("n", "<C-s>", "<cmd>w<CR>", { desc = "general save file" })
 map("n", "<C-c>", "<cmd>%y+<CR>", { desc = "general copy whole file" })
 
 map("n", "<leader>n", "<cmd>set nu!<CR>", { desc = "toggle line number" })
 map("n", "<leader>rn", "<cmd>set rnu!<CR>", { desc = "toggle relative number" })
 
-map("n", "<leader>/", "gcc", { desc = "toggle comment", remap = true })
-map("v", "<leader>/", "gc", { desc = "toggle comment", remap = true })
-
 map("n", ";", ":", { desc = "CMD enter command mode" })
-map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
-
--- Telescope
-
-local builtin = require "telescope.builtin"
-
-map("n", "<C-p>", builtin.find_files, {})
-map("n", "<leader>fg", builtin.live_grep, {})
-map("n", "<leader><leader>", builtin.oldfiles, {})

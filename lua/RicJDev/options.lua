@@ -1,20 +1,8 @@
 vim.g.mapleader = " "
 
-vim.cmd.colorscheme "onedark"
--- vim.cmd.colorscheme "catppuccin-macchiato"
-vim.cmd "set nu!"
-
 local opt = vim.opt
 local o = vim.o
 local g = vim.g
-
--------------------------------------- options ------------------------------------------
-o.laststatus = 3
-o.showmode = false
-
-o.clipboard = "unnamedplus"
-o.cursorline = true
-o.cursorlineopt = "number"
 
 -- Indenting
 o.expandtab = true
@@ -54,12 +42,3 @@ g.loaded_node_provider = 0
 g.loaded_python3_provider = 0
 g.loaded_perl_provider = 0
 g.loaded_ruby_provider = 0
-
--- add binaries installed by mason.nvim to path
-local is_windows = vim.fn.has "win32" ~= 0
-local sep = is_windows and "\\" or "/"
-local delim = is_windows and ";" or ":"
-vim.env.PATH = table.concat({ vim.fn.stdpath "data", "mason", "bin" }, sep) .. delim .. vim.env.PATH
-vim.opt.signcolumn = 'yes'
-vim.opt.swapfile = false
-vim.wo.number = true
