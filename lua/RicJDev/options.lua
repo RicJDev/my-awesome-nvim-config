@@ -1,21 +1,13 @@
-vim.g.mapleader = " "
-
--- vim.cmd.colorscheme "catppuccin-macchiato"
-vim.cmd.colorscheme "onedark"
--- vim.cmd.colorscheme "onedark_vivid"
-
 vim.cmd [[
   set guicursor=n-v-c-i:block
   set linebreak
-  "set foldcolumn=1
-  "set foldlevel=20
-  "set foldmethod=expr
-  "set foldexpr=nvim_treesitter#foldexpr()
+  colorscheme onedark
 ]]
 
 local opt = vim.opt
 local o = vim.o
 local g = vim.g
+local wo = vim.wo
 
 -------------------------------------- options ------------------------------------------
 o.laststatus = 3
@@ -73,7 +65,6 @@ local delim = is_windows and ";" or ":"
 vim.env.PATH = table.concat({ vim.fn.stdpath "data", "mason", "bin" }, sep) .. delim .. vim.env.PATH
 
 -- Ehm... other stuff
-
-vim.opt.signcolumn = "yes"
-vim.opt.swapfile = false
-vim.wo.number = false
+opt.signcolumn = "yes"
+opt.swapfile = false
+wo.number = false

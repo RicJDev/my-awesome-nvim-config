@@ -1,18 +1,9 @@
 local map = vim.keymap.set
 
--- NvimTree
+-- File tree
 
--- map("n", "<C-n>", "<cmd>NvimTreeToggle<CR>", { desc = "nvimtree toggle window" })
--- map("n", "<leader>e", "<cmd>NvimTreeFocus<CR>", { desc = "nvimtree focus window" })
-
-map('n', "<C-n>", "<cmd>Neotree position=float toggle<CR>", {desc = "Neotree toggle window"})
+map('n', "<C-n>", "<cmd>Neotree position=float toggle<CR>", { desc = "Neotree toggle window" })
 map("n", "<leader>e", "<cmd>Neotree action=focus<CR>", { desc = "Neotree focus window" })
-
--- Formating
-
-map({ "n", "x", "i" }, "<F3>", function()
-  require("conform").format { lsp_fallback = true }
-end, { desc = "general format file" })
 
 -- Some basic keymaps
 
@@ -22,14 +13,10 @@ map("i", "<C-h>", "<Left>", { desc = "move left" })
 map("i", "<C-l>", "<Right>", { desc = "move right" })
 map("i", "<C-j>", "<Down>", { desc = "move down" })
 map("i", "<C-k>", "<Up>", { desc = "move up" })
-
-map("n", "<C-h>", "<C-w>h", { desc = "switch window left" })
-map("n", "<C-l>", "<C-w>l", { desc = "switch window right" })
-map("n", "<C-j>", "<C-w>j", { desc = "switch window down" })
-map("n", "<C-k>", "<C-w>k", { desc = "switch window up" })
-
+map({ "n", "x", "i" }, "<F3>", function()
+  require("conform").format { lsp_fallback = true }
+end, { desc = "general format file" })
 map("n", "<Esc>", "<cmd>noh<CR>", { desc = "general clear highlights" })
-
 map("n", "<C-s>", "<cmd>w<CR>", { desc = "general save file" })
 map("n", "<C-c>", "<cmd>%y+<CR>", { desc = "general copy whole file" })
 
@@ -40,11 +27,11 @@ map("n", "<leader>/", "gcc", { desc = "toggle comment", remap = true })
 map("v", "<leader>/", "gc", { desc = "toggle comment", remap = true })
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
-map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 
-map({ "n", "i" }, "<C-z>", "<cmd>u<CR>", { desc = "undo last change" })
+-- Buffer navigation
 
--- Telescope
+map("n", "<Tab>", "<CMD>bNext<CR>", { desc = "change to next buffer" })
+map("n", "<S-Tab>", "<CMD>bprevious<CR>", { desc = "change to previous buffer" })
 
 local builtin = require "telescope.builtin"
 
