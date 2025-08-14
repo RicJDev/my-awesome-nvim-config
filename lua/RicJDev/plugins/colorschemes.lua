@@ -1,6 +1,3 @@
-local onedarkpro = require "RicJDev.config.onedarkpro"
-local catppuccin = require "RicJDev.config.catppuccin"
-
 return {
   {
     "olimorris/onedarkpro.nvim",
