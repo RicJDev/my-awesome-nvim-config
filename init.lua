@@ -1,5 +1,6 @@
 require('RicJDev')
 
+require 'nvim-treesitter.install'.compilers = { "zig", "gcc" }
 vim.diagnostic.config {
   signs = {
     text = {
