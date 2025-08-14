@@ -1,3 +1,9 @@
+vim.cmd [[
+  set guicursor=n-v-c-i:block
+  set linebreak
+  colorscheme onedark
+]]
+
 vim.g.mapleader = " "
 
 local opt = vim.opt
@@ -57,8 +63,3 @@ g.loaded_ruby_provider = 0
 -- Other stuff
 opt.swapfile = false
 wo.number = false
-
-vim.cmd [[
-  set guicursor=n-v-c-i:block
-  set linebreak
-]]
