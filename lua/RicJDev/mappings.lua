@@ -24,3 +24,14 @@ map("n", "<leader>/", "gcc", { desc = "toggle comment", remap = true })
 map("v", "<leader>/", "gc", { desc = "toggle comment", remap = true })
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
+
+-- Buffer navigation
+
+map("n", "<Tab>", "<CMD>bNext<CR>", { desc = "change to next buffer" })
+map("n", "<S-Tab>", "<CMD>bprevious<CR>", { desc = "change to previous buffer" })
+
+local builtin = require "telescope.builtin"
+
+map("n", "<C-p>", builtin.find_files, {})
+map("n", "<leader>fg", builtin.live_grep, {})
+map("n", "<leader><leader>", builtin.oldfiles, {})
