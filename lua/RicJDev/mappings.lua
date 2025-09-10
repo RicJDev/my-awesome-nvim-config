@@ -42,3 +42,18 @@ map("n", "<leader>fg", builtin.live_grep, {})
 map("n", "<leader><leader>", builtin.oldfiles, {})
 
 map("n", "K", vim.lsp.buf.hover, {})
+
+vim.api.nvim_create_autocmd("LspAttach", {
+  desc = "LSP actions",
+  callback = function(event)
+    local opts = { buffer = event.buf }
+
+    map("n", "<F2>", function()
+      vim.lsp.buf.rename()
+    end, opts)
+
+    map("n", "<F4>", function()
+      vim.lsp.buf.code_action()
+    end, opts)
+  end,
+})
