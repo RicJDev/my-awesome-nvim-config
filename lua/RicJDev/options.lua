@@ -1,4 +1,5 @@
 vim.cmd [[
+  set nowrap
   set guicursor=n-v-c-i:block
   set linebreak
   colorscheme onedark
@@ -15,14 +16,11 @@ o.showmode = false
 
 o.clipboard = "unnamedplus"
 o.cursorline = true
-o.cursorlineopt = "number"
+o.cursorlineopt = "both"
 
 -- Indenting
 o.expandtab = true
-o.shiftwidth = 2
 o.smartindent = true
-o.tabstop = 2
-o.softtabstop = 2
 
 opt.fillchars = { eob = " " }
 o.ignorecase = true
@@ -33,6 +31,9 @@ o.mouse = "a"
 o.number = true
 o.numberwidth = 2
 o.ruler = false
+
+-- Virtual column
+opt.colorcolumn = "80"
 
 -- disable nvim intro
 opt.shortmess:append "sI"
