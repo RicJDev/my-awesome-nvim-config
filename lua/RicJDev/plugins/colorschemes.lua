@@ -16,7 +16,7 @@ return {
         cursorline = true,
         transparency = true,
       },
-    }
+    },
   },
   {
     "catppuccin/nvim",
@@ -24,6 +24,10 @@ return {
     opts = {
       no_italic = true,
       transparent_background = true,
-    }
+    },
+  },
+  {
+    "darianmorat/gruvdark.nvim",
+    opts = {},
   },
 }
