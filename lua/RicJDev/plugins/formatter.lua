@@ -13,20 +13,26 @@ return {
         ".editorconfig",
       },
       config_path = ".prettierrc.json",
+      ft_parsers = {
+        astro = "astro",
+      },
+      ext_parsers = {
+        astro = "astro",
+      },
     },
   },
   config = function()
     require("conform").setup {
       formatters_by_ft = {
         lua = { "stylua" },
-        javascript = { "prettier", lsp_fallback = true },
-        typescript = { "prettier", lsp_fallback = true },
-        javascriptreact = { "prettier", lsp_fallback = true },
-        typescriptreact = { "prettier", lsp_fallback = true },
-        json = { "prettier", lsp_fallback = true },
-        html = { "prettier", lsp_fallback = true },
-        css = { "prettier", lsp_fallback = true },
-        astro = { lsp_fallback = true },
+        javascript = { "prettier" },
+        typescript = { "prettier" },
+        javascriptreact = { "prettier" },
+        typescriptreact = { "prettier" },
+        json = { "prettier" },
+        html = { "prettier" },
+        css = { "prettier" },
+        astro = { "prettier" },
       },
       formatters = {},
     }
