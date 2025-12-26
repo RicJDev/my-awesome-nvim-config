@@ -9,10 +9,6 @@ map("n", "<leader>e", "<cmd>Neotree action=focus<CR>", { desc = "Neotree focus w
 
 map("i", "<C-b>", "<ESC>^i", { desc = "move beginning of line" })
 map("i", "<C-e>", "<End>", { desc = "move end of line" })
-map("i", "<C-h>", "<Left>", { desc = "move left" })
-map("i", "<C-l>", "<Right>", { desc = "move right" })
-map("i", "<C-j>", "<Down>", { desc = "move down" })
-map("i", "<C-k>", "<Up>", { desc = "move up" })
 map({ "n", "x", "i" }, "<F3>", function()
   require("conform").format { lsp_fallback = true }
 end, { desc = "general format file" })

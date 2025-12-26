@@ -1,0 +1,127 @@
+{
+  "Comentario_Linea": {
+    "prefix": ["//", "Comentario-Linea"],
+    "body": ["// ${1:Comentario}"]
+  },
+  "Comentario_Bloque": {
+    "prefix": ["/*", "Comentario-Bloque"],
+    "body": ["/*", "\t${1:Comentario}", "*/"]
+  },
+  "Algoritmo": {
+    "prefix": "Algoritmo",
+    "body": ["Algoritmo ${1:mi_algoritmo}", "Inicio", "\t${0:// ...}", "Fin"]
+  },
+  "Si-entonces": {
+    "prefix": "Si-entonces",
+    "body": ["Si (${1:condicion}) Entonces;", "\t${2:// ...}", "Fin_Si"]
+  },
+  "Si-Sino": {
+    "prefix": "Si-Sino",
+    "body": [
+      "Si (${1:condicion}) Entonces;",
+      "\t${2:// ...}",
+      "\tSino",
+      "\t\t${3:// ...}",
+      "Fin_Si"
+    ]
+  },
+  "Para-hacer": {
+    "prefix": "Para-hacer",
+    "body": [
+      "Para (${1:i = 1} Hasta ${2:i = n}) Hacer;",
+      "\t${3:// ...}",
+      "Fin_Para"
+    ]
+  },
+  "Repetir-hasta": {
+    "prefix": "Repetir-hasta",
+    "body": [
+      "Repetir",
+      "\t${2:// ...}",
+      "\tHasta(${1:condicion});",
+      "Fin_Repetir"
+    ]
+  },
+  "Mientras-hacer": {
+    "prefix": "Mientras-hacer",
+    "body": [
+      "Mientras (${1:condicion}) Hacer;",
+      "\t${2:// ...}",
+      "Fin_Mientras"
+    ]
+  },
+  "En_caso-sea": {
+    "prefix": "En_Caso-sea",
+    "body": [
+      "En_Caso (${1:condicion}) Sea;",
+      "\tCaso(${2:valor});",
+      "\t\t${3:// ...}",
+      "\tOtro_Caso",
+      "\t\t${4:// ...}",
+      "Fin_Caso"
+    ]
+  },
+  "Caso": {
+    "prefix": "Caso",
+    "body": ["Caso(${1:valor});", "\t${2:// ...}"]
+  },
+  "Procedimiento": {
+    "prefix": "Procedimiento",
+    "body": [
+      "Procedimiento ${1:dame_nombre}(${2: E/S}: ${3:parametro: Entero});",
+      "Inicio",
+      "\t${0:// ...}",
+      "Fin_Procedimiento"
+    ]
+  },
+  "Funcion": {
+    "prefix": "Funcion",
+    "body": [
+      "Funcion ${1:dame_nombre}(${2:parametro: Entero}): ${3:Entero};",
+      "Inicio",
+      "\t${0:// ...}",
+      "\tDevolver();",
+      "Fin_Funcion"
+    ]
+  },
+  "Registro": {
+    "prefix": "Registro",
+    "body": ["Registro: ${1:DameNombre};", "\t${2:// ...}", "Fin_Registro"]
+  },
+  "Imprimir": {
+    "prefix": "Imprimir",
+    "body": ["Imprimir << ${1:valor};"]
+  },
+  "Mostrar": {
+    "prefix": "Mostrar",
+    "body": ["Mostrar << ${1:valor};"]
+  },
+  "Leer": {
+    "prefix": "Leer",
+    "body": ["Leer >> ${1:variable};"]
+  },
+  "Variable": {
+    "prefix": "Variable",
+    "body": ["var ${1:dame_nombre}: ${2:Entero};"]
+  },
+  "Validacion": {
+    "prefix": "Validacion",
+    "body": [
+      "Mientras (${1:n} < 1) Hacer;",
+      "\tMostrar << \"${2:Es invalido}\";",
+      "\tLeer >> ${1:n};",
+      "Fin_Mientras"
+    ]
+  },
+  "Vector": {
+    "prefix": "Vector",
+    "body": ["var ${1:vector}[${2:n}]: ${3:Entero};", "var ${2:n}: Entero;"]
+  },
+  "Matriz": {
+    "prefix": "Matriz",
+    "body": [
+      "var ${1:matriz}[${2:n}][${3:m}]: ${4:Entero};",
+      "var ${2:n}, ${3:m}: Entero;"
+    ]
+  }
+}

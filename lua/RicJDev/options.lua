@@ -3,6 +3,7 @@ vim.cmd [[
   set guicursor=n-v-c-i:block
   set linebreak
   colorscheme onedark
+  Copilot disable
 ]]
 
 local opt = vim.opt
@@ -64,6 +65,28 @@ local is_windows = vim.fn.has "win32" ~= 0
 local sep = is_windows and "\\" or "/"
 local delim = is_windows and ";" or ":"
 vim.env.PATH = table.concat({ vim.fn.stdpath "data", "mason", "bin" }, sep) .. delim .. vim.env.PATH
+
+-- Archivos .gabo
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = "*.gabo",
+  callback = function(args)
+    vim.bo[args.buf].filetype = "gabo"
+  end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "*.gabo",
+  callback = function(args)
+    local bufnr = args.buf
+    vim.bo[bufnr].shiftwidth = 2
+    vim.bo[bufnr].tabstop = 2
+    vim.bo[bufnr].softtabstop = 2
+    vim.bo[bufnr].expandtab = true
+    vim.bo[bufnr].commentstring = "// %s"
+
+    vim.cmd "set syntax gabo"
+  end,
+})
 
 -- Ehm... other stuff
 opt.signcolumn = "yes"

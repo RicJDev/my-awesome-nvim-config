@@ -33,6 +33,10 @@ return {
         html = { "prettier" },
         css = { "prettier" },
         astro = { "prettier" },
+        python = {
+          "autopep8",
+          lsp_format = "fallback",
+        },
       },
       formatters = {},
     }

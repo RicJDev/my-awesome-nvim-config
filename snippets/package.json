@@ -1,0 +1,19 @@
+{
+  "name": "my-snippets",
+  "contributes": {
+    "snippets": [
+      {
+        "language": [
+          "gabo"
+        ],
+        "path": "./gabo.json"
+      },
+      {
+        "language": [
+          "css"
+        ],
+        "path": "./css.json"
+      }
+    ]
+  }
+}

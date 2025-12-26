@@ -1,6 +1,7 @@
 vim.g.nofsync = true
 
 require('RicJDev')
+require('RicJDev.lsp')
 
 require 'nvim-treesitter.install'.compilers = { "zig", "gcc" }
 vim.diagnostic.config {
