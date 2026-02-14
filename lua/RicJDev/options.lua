@@ -3,62 +3,61 @@ vim.cmd [[
   set guicursor=n-v-c-i:block
   set linebreak
   colorscheme onedark
-  Copilot disable
 ]]
 
-local opt = vim.opt
-local o = vim.o
-local g = vim.g
-local wo = vim.wo
+vim.api.nvim_create_user_command("BufOnly", function()
+  vim.cmd "%bd|e#|bd#"
+end, {})
 
 -------------------------------------- options ------------------------------------------
-o.laststatus = 3
-o.showmode = false
+vim.o.laststatus = 3
+vim.o.showmode = false
 
-o.clipboard = "unnamedplus"
-o.cursorline = true
-o.cursorlineopt = "both"
+vim.o.clipboard = "unnamedplus"
+vim.o.cursorline = true
+vim.o.cursorlineopt = "both"
 
 -- Indenting
-o.expandtab = true
-o.smartindent = true
+vim.o.expandtab = true
+vim.o.smartindent = true
 
-opt.fillchars = { eob = " " }
-o.ignorecase = true
-o.smartcase = true
-o.mouse = "a"
+vim.opt.fillchars = { eob = " " }
+vim.o.ignorecase = true
+vim.o.smartcase = true
+vim.o.mouse = "a"
 
 -- Numbers
-o.number = true
-o.numberwidth = 2
-o.ruler = false
+vim.o.number = true
+vim.o.relativenumber = true
+vim.o.numberwidth = 2
+vim.o.ruler = false
 
 -- Virtual column
-opt.colorcolumn = "80"
+vim.opt.colorcolumn = "80"
 
 -- disable nvim intro
-opt.shortmess:append "sI"
+vim.opt.shortmess:append "sI"
 
-o.foldenable = true
-o.foldlevelstart = 99
-o.signcolumn = "yes"
-o.splitbelow = true
-o.splitright = true
-o.timeoutlen = 400
-o.undofile = true
+vim.o.foldenable = true
+vim.o.foldlevelstart = 99
+vim.o.signcolumn = "yes"
+vim.o.splitbelow = true
+vim.o.splitright = true
+vim.o.timeoutlen = 400
+vim.o.undofile = true
 
 -- interval for writing swap file to disk, also used by gitsigns
-o.updatetime = 250
+vim.o.updatetime = 250
 
 -- go to previous/next line with h,l,left arrow and right arrow
 -- when cursor reaches end/beginning of line
-opt.whichwrap:append "<>[]hl"
+vim.opt.whichwrap:append "<>[]hl"
 
 -- disable some default providers
-g.loaded_node_provider = 0
-g.loaded_python3_provider = 0
-g.loaded_perl_provider = 0
-g.loaded_ruby_provider = 0
+vim.g.loaded_node_provider = 0
+vim.g.loaded_python3_provider = 0
+vim.g.loaded_perl_provider = 0
+vim.g.loaded_ruby_provider = 0
 
 -- add binaries installed by mason.nvim to path
 local is_windows = vim.fn.has "win32" ~= 0
@@ -89,6 +88,5 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- Ehm... other stuff
-opt.signcolumn = "yes"
-opt.swapfile = false
-wo.number = false
+vim.opt.signcolumn = "yes"
+vim.opt.swapfile = false
